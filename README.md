@@ -8,40 +8,40 @@
 algorithm-notes/
 ├── README.md
 ├── docs/
-│   └── template.c          # 新题模板（文件头注释格式）
+│   └── muban.c                             # 新题模板（文件头注释格式）
 ├── sort/
-│   ├── selection_sort.c    # 选择排序
-│   └── bubble_sort.c       # 冒泡排序
+│   ├── xuanzepaixu.c                       # 选择排序
+│   └── maopaopaixu.c                       # 冒泡排序
 ├── search/
-│   └── binary_search.c     # 二分查找
+│   └── erfenchazhao.c                      # 二分查找
 ├── number/
-│   ├── prime.c             # 素数判断
-│   └── digit_split.c       # 拆分数字
+│   ├── sushu.c                             # 素数判断
+│   └── chaifenshuzi.c                      # 拆分数字
 ├── two_pointers/
-│   └── converge.c          # 字符串两端向中间汇聚
+│   └── liangduanhuiju.c                    # 字符串两端向中间汇聚
 └── date/
-    └── days_of_month.c     # 某年某月有多少天
+    └── jisuanmounianmouyueyoujitian.c      # 某年某月有多少天
 ```
 
 ## 题目索引
 
 | 专题 | 文件 | 核心思想 | 时间 | 空间 | 易错点 |
 |---|---|---|---|---|---|
-| 排序 | `sort/selection_sort.c` | 每轮选最小值放到未排序区首位 | O(n²) | O(1) | 记录的是下标；外层 n-1 轮 |
-| 排序 | `sort/bubble_sort.c` | 相邻逆序交换，最大值冒到末尾 | O(n²) | O(1) | 内层 `j < n-1-i`，防 `arr[n]` 越界 |
-| 查找 | `search/binary_search.c` | 有序区间折半收缩 | O(log n) | O(1) | `left <= right`；mid 防溢出 |
-| 数论 | `number/prime.c` | 试除到 √n | O(√n) | O(1) | 1 不是素数；`i <= n / i` |
-| 数位 | `number/digit_split.c` | `%10` 取末位，`/10` 去掉 | O(log n) | O(1) | n=0、负数要特判 |
-| 双指针 | `two_pointers/converge.c` | left/right 向中间收缩 | O(n) | O(n) | `right = strlen(s)-1` |
-| 日期 | `date/days_of_month.c` | 月份天数打表 + 闰年 +1 | O(1) | O(1) | 闰年规则；数组 0 号位占位 |
+| 排序 | `sort/xuanzepaixu.c` | 每轮选最小值放到未排序区首位 | O(n²) | O(1) | 记录的是下标；外层 n-1 轮 |
+| 排序 | `sort/maopaopaixu.c` | 相邻逆序交换，最大值冒到末尾 | O(n²) | O(1) | 内层 `j < n-1-i`，防 `arr[n]` 越界 |
+| 查找 | `search/erfenchazhao.c` | 有序区间折半收缩 | O(log n) | O(1) | `left <= right`；mid 防溢出 |
+| 数论 | `number/sushu.c` | 试除到 √n | O(√n) | O(1) | 1 不是素数；`i <= n / i` |
+| 数位 | `number/chaifenshuzi.c` | `%10` 取末位，`/10` 去掉 | O(log n) | O(1) | n=0、负数要特判 |
+| 双指针 | `two_pointers/liangduanhuiju.c` | left/right 向中间收缩 | O(n) | O(n) | `right = strlen(s)-1` |
+| 日期 | `date/jisuanmounianmouyueyoujitian.c` | 月份天数打表 + 闰年 +1 | O(1) | O(1) | 闰年规则；数组 0 号位占位 |
 
 ## 编译运行
 
 以冒泡排序为例（PowerShell）：
 
 ```powershell
-gcc -std=c11 -Wall -Wextra sort/bubble_sort.c -o bubble_sort.exe
-.\bubble_sort.exe
+gcc -std=c11 -Wall -Wextra sort/maopaopaixu.c -o maopaopaixu.exe
+.\maopaopaixu.exe
 ```
 
 输入：
@@ -59,7 +59,8 @@ gcc -std=c11 -Wall -Wextra sort/bubble_sort.c -o bubble_sort.exe
 
 ## 代码约定
 
-- 文件头统一写：题目、考点、思路、复杂度、易错点，模板见 `docs/template.c`
+- 文件名用全拼小写，和 `lessons` 保持一致（如 `maopaopaixu.c`）
+- 文件头统一写：题目、考点、思路、复杂度、易错点，模板见 `docs/muban.c`
 - 大括号 Allman 风格，左右对齐
 - 数组长度宏统一用 `MAX_SIZE`
 - 注释用中文，程序输出用英文（避免 Windows 控制台编码问题）
